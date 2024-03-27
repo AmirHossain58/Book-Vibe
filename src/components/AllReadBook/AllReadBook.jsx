@@ -15,7 +15,6 @@ const AllReadBook = ({book}) => {
 
 
     const {bookId,bookName,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=book
-    console.log(book);
     return (
         <div>
         <Card className="w-full border max-w-[70rem] flex-col items-center lg:flex-row">

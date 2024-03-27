@@ -69,6 +69,42 @@ function NavList() {
           Pages to Read
           </NavLink>
         </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
+        >
+          <NavLink to={'/pricing'} 
+          className={({ isActive, isPending }) =>
+          isActive
+            ? "text-blue-500 font-bold underline text-xl"
+            : isPending
+            ? "pending"
+            : "flex items-center hover:text-blue-500 transition-colors"
+        }
+          >
+          Pricing
+          </NavLink>
+        </Typography>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="p-1 font-medium"
+        >
+          <NavLink to={'/contractUs'} 
+          className={({ isActive, isPending }) =>
+          isActive
+            ? "text-blue-500 font-bold underline text-xl"
+            : isPending
+            ? "pending"
+            : "flex items-center hover:text-blue-500 transition-colors"
+        }
+          >
+          Contact Us
+          </NavLink>
+        </Typography>
       </ul>
     );
   }

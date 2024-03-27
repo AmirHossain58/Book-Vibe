@@ -2,7 +2,7 @@ import { Typography } from '@material-tailwind/react';
 import useBooksData from '../Hooks/useBooksData';
 import BooKCard from './../BooKCard/BooKCard';
 const BooksCard = () => {
-    const{books ,loading}=useBooksData()
+    const{books}=useBooksData()
 
     
     return (

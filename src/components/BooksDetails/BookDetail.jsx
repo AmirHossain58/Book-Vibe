@@ -1,7 +1,4 @@
-import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router-dom';
-
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useBooksData from './../Hooks/useBooksData';
@@ -12,22 +9,21 @@ import {
     Typography,
     Button,
   } from "@material-tailwind/react";
-import Deatails from '../Deatails';
 import { saveBookDAta } from '../utliity/storage';
-import { getBookWishlist, saveBookWishlist } from '../utliity/wishlist';
+import { saveBookWishlist } from '../utliity/wishlist';
+import { useEffect, useState } from 'react';
 
 const BookDetail = () => {
   const [read ,setRead]=useState(true)
   const [book,setBook]=useState({})
-  const{books ,loading}=useBooksData()
   const allBook=useLoaderData()
     const{id}=useParams()
     const idNum=parseInt(id)
     useEffect(()=>{
-      if(allBook){
-        // const book2=allBook.filter(book=>idNum.includes(book.bookId))
+      if(allBook.length>0){
         const book2=allBook?.find(b=>b.bookId===idNum)
-        setBook(book2);      }
+        setBook(book2);     
+      }
        
     },[idNum,allBook])
     const {bookId,bookName,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=book||{}
@@ -78,11 +74,10 @@ const BookDetail = () => {
         </p>
         <div className="divider"></div>
         <Typography color="gray" className="mb-8 font-normal">Review : {review}
+        </Typography>
         <div className='flex justify-around font-bold'>
         Tag
-        
         <p className='text-green-700'>#{tags}</p>
-        {/* <p className='text-green-700'>#{tags}</p> */}
         </div>
         <div className="divider"></div>
         <div className='space-y-2'>
@@ -104,7 +99,6 @@ const BookDetail = () => {
           </div>
         </div>
        
-        </Typography>
   
           <div className='flex gap-2'>
           <Link to={''}>
