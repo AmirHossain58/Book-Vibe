@@ -14,6 +14,7 @@ import {
   } from "@material-tailwind/react";
 import Deatails from '../Deatails';
 import { saveBookDAta } from '../utliity/storage';
+import { getBookWishlist, saveBookWishlist } from '../utliity/wishlist';
 
 const BookDetail = () => {
   const [read ,setRead]=useState(true)
@@ -48,24 +49,25 @@ const BookDetail = () => {
       }
     }
     const handleWishlist=()=>{
+      const book2=allBook.find(b=>b.bookId===idNum)
       if(read){
-
+          saveBookWishlist(book2)
         toast("Book Added to WishlistList ");
       }else{
         toast.error("You Have Already Read this Book");
       }
     }
     return (
-      <Card className="w-full flex-row mt-14">
+      <Card className="w-full flex-col lg:flex-row mt-14">
       <CardHeader
         shadow={false}
         floated={false}
-        className="m-0 w-3/6 bg-[#1313130D] p-16 shrink-0 mr-12 rounded-r-none"
+        className="m-0 lg:w-3/6 bg-[#1313130D] lg:p-16 shrink-0 mr-12 rounded-r-none flex justify-center items-center "
       >
         <img
           src={image}
           alt="card-image"
-          className="h-full w-full object-cover"
+          className="h-full rounded-xl lg:w-full bg-cover object-cover"
         />
       </CardHeader>
       <CardBody>

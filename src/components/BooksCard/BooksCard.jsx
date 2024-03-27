@@ -8,7 +8,7 @@ const BooksCard = () => {
     return (
         <div className='mt-16'>
                   <Typography className='text-center' variant="h1">Books</Typography>
-                 <div className='grid grid-cols-3 gap-6 '>
+                 <div className='grid lg:grid-cols-3 gap-6 '>
                  {
                     books?.map(book=><BooKCard 
                       key={book.bookId}

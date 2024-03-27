@@ -19,7 +19,17 @@ function NavList() {
           color="blue-gray"
           className="p-1 font-medium"
         >
-          <NavLink to={'/'} className="flex items-center hover:text-blue-500 transition-colors">
+          <NavLink to={'/'} 
+          // className="flex items-center hover:text-blue-500 transition-colors"
+          className={({ isActive, isPending }) =>
+                      isActive
+                        ? "text-blue-500 font-bold underline text-xl"
+                        : isPending
+                        ? "pending"
+                        : "flex items-center hover:text-blue-500 transition-colors"
+                    }
+          >
+            
           Home
           </NavLink>
         </Typography>
@@ -29,7 +39,15 @@ function NavList() {
           color="blue-gray"
           className="p-1 font-medium"
         >
-          <NavLink to={'/listedBooks'} className="flex items-center hover:text-blue-500 transition-colors">
+          <NavLink to={'/listedBooks'} 
+          className={({ isActive, isPending }) =>
+          isActive
+            ? "text-blue-500 font-bold underline text-xl"
+            : isPending
+            ? "pending"
+            : "flex items-center hover:text-blue-500 transition-colors"
+        }
+          >
           Listed Books
           </NavLink>
         </Typography>
@@ -39,7 +57,15 @@ function NavList() {
           color="blue-gray"
           className="p-1 font-medium"
         >
-          <NavLink to={'/pagesToRead'} className="flex items-center hover:text-blue-500 transition-colors">
+          <NavLink to={'/pagesToRead'} 
+          className={({ isActive, isPending }) =>
+          isActive
+            ? "text-blue-500 font-bold underline text-xl"
+            : isPending
+            ? "pending"
+            : "flex items-center hover:text-blue-500 transition-colors"
+        }
+          >
           Pages to Read
           </NavLink>
         </Typography>
