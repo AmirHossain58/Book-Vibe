@@ -14,7 +14,7 @@ const Banner = () => {
              <Button className='lg:mt-6  mb-6' color='green' variant="gradient">View The List</Button>
              </Link>
              </div>
-             <div className=' w-[350px]'><img className='bg-cover bg-no-repeat rounded-2xl h-[350px] w-[450px]' src="/public/stack-various-books-table.png" alt="" /></div>
+             <div className=' w-[350px]'><img className='bg-cover bg-no-repeat rounded-2xl h-[350px] w-[450px]' src="/stack-various-books-table.png" alt="" /></div>
           </div>
     );
 };

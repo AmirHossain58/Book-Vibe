@@ -14,7 +14,7 @@ const BooKCard = ({book}) => {
     return (
        <Link to={`/booksDetails/${bookId}`}>
         <Card className="mt-6 ">
-      <CardHeader color="" className="relative h-60 flex justify-center bg-[#eceff1] py-2">
+      <CardHeader className="relative h-60 flex justify-center bg-[#eceff1] py-2">
         <img
         className='rounded-xl'
           src={image}
@@ -24,7 +24,8 @@ const BooKCard = ({book}) => {
       <CardBody>
         <div className=' flex gap-10 text-green-700 font-bold'>
             <p className='bg-[#23BE0A0D] p-2 rounded-2xl '>{tags[0]}</p>
-        <p className='bg-[#23BE0A0D] p-2 rounded-2xl'>{tags[1]}</p></div>
+            <p className='bg-[#23BE0A0D] p-2 rounded-2xl'>{tags[1]}</p>
+        </div>
         <Typography variant="h5" color="blue-gray" className="mb-2 border-b-2 p-3 border-dashed">
           {bookName}
         </Typography>

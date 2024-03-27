@@ -21,24 +21,19 @@ const BookDetail = () => {
   const [book,setBook]=useState({})
   const{books ,loading}=useBooksData()
   const allBook=useLoaderData()
-  // console.log(allBook);
     const{id}=useParams()
     const idNum=parseInt(id)
-   console.log(idNum);
     useEffect(()=>{
       if(allBook){
         // const book2=allBook.filter(book=>idNum.includes(book.bookId))
-        const book2=allBook.find(b=>b.bookId===idNum)
-        setBook(book2);
-        console.log(book2);
-      }
-      console.log(book);
+        const book2=allBook?.find(b=>b.bookId===idNum)
+        setBook(book2);      }
        
     },[idNum,allBook])
     const {bookId,bookName,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=book||{}
     const handleRead=()=>{
 
-      const book2=allBook.find(b=>b.bookId===idNum)
+      const book2=allBook?.find(b=>b.bookId===idNum)
       setBook(book2);
       if(read){
         saveBookDAta(book2)
@@ -49,7 +44,7 @@ const BookDetail = () => {
       }
     }
     const handleWishlist=()=>{
-      const book2=allBook.find(b=>b.bookId===idNum)
+      const book2=allBook?.find(b=>b.bookId===idNum)
       if(read){
           saveBookWishlist(book2)
         toast("Book Added to WishlistList ");
@@ -72,7 +67,7 @@ const BookDetail = () => {
       </CardHeader>
       <CardBody>
         <Typography variant="h4" color="black" className="mb-4 uppercase ">
-        {bookName}
+        {bookName||''}
         </Typography>
         <Typography variant="h6" color="blue-gray" className="mb-2">
         By : {author}
