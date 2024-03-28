@@ -2,7 +2,7 @@
 
 Welcome to Book Vibe, your go-to platform for tracking your reading progress and discovering new books!
 
-Live Site: [https://www.bookvibe.com](https://6605a59dbd201604c478b71d--boisterous-cupcake-b86f94.netlify.app/pagesToRead)
+Live Site: [https://www.bookvibe.com](https://6605ae2c0798460cbdd9c8f8--warm-kheer-014e6d.netlify.app/)
 
 ## Features and Characteristics:
 

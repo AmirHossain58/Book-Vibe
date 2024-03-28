@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { getBookData } from '../utliity/storage';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, CartesianGrid, ResponsiveContainer } from 'recharts';
 // const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}]
 
-const bookRead=getBookData()
-const {bookId,bookName,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=bookRead;
-
-const data =bookRead.map(b=>[{name:b.bookName, pages:b.totalPages}]) 
-const data1=[].concat(...data)
 
 
 
 const PagesToRead = () => {
-
+    const [book ,setBook]=useState()
+    const bookRead=getBookData()
+    const data =bookRead.map(b=>[{name:b.bookName, pages:b.totalPages}]) 
+    const data1=[].concat(...data)
+    useEffect(()=>{
+        setBook(data1)
+    },[])
     return (
         <div className='mt-20 h-[300px] bg-[#13131308] py-10 flex  items-center justify-center rounded-2xl'>
 <ResponsiveContainer width="100%" height="100%">
-<BarChart data={data1}>
+<BarChart data={book}>
     <XAxis dataKey="name" stroke="#8884d8" />
     <YAxis />
     <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
