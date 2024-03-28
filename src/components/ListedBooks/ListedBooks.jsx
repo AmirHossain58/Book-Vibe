@@ -1,5 +1,5 @@
 import { Button, Typography } from '@material-tailwind/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GoChevronDown } from "react-icons/go";
 
 import BookList from '../BookList/BookList';
@@ -9,26 +9,37 @@ import AllReadBook from '../AllReadBook/AllReadBook';
 
 
 const ListedBooks = () => {
-    const [bookRead,setBookRead]=useState()
+    const [bookRead,setBookRead]=useState([])
     const bookReadAll=getBookData()
     const[click ,setclick]=useState(false)
     const[sort ,setSort]=useState()
-    const handleSortBook=(sort)=>{
-        if(sort==='Rating'){
+    console.log(bookReadAll);
+    // setBookRead(bookReadAll)
+useEffect(()=>{
+
+    if(bookReadAll.length>0){
+        setBookRead(bookReadAll)
+    }
+},[])
+    const handleSortBook=(sort='all')=>{
+        if(sort==='all'){
+            setBookRead(bookReadAll)
+        }
+        else if(sort==='Rating'){
             const sortByRating = bookReadAll.slice().sort((a, b) => b.rating - a.rating)
             setBookRead(sortByRating)
         }else if (sort==='Number of pages'){
-            const sortByPrice = bookReadAll.slice().sort((a, b) => a.price - b.price);
-            setBookRead(sortByPrice)
+            const sortByPages = bookReadAll.slice().sort((a, b) => b.totalPages - a.totalPages);
+            setBookRead(sortByPages)
         }
         else if (sort==='Publisher year'){
-            const sortByPublishingYear = bookReadAll.slice().sort((a, b) => a.publishingYear - b.publishingYear);
+            const sortByPublishingYear = bookReadAll.slice().sort((a, b) => b.yearOfPublishing- a.yearOfPublishing
+);
             setBookRead(sortByPublishingYear)
 
-        }else{
-            setBookRead(bookReadAll)
         }
     }
+    // setBookRead(bookReadAll)
 
     return (
         <>
@@ -48,13 +59,15 @@ const ListedBooks = () => {
         <div role="tablist" className="tabs tabs-lifted">
             <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Read" checked  />
             <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
-            {
+           <div className='space-y-4'>
+           {
                
-                bookRead?.map(book=><AllReadBook 
-                  book={book}
-                  key={book.bookId}></AllReadBook>)
-               
-            }
+               bookRead?.map(book=><AllReadBook 
+                 book={book}
+                 key={book.bookId}></AllReadBook>)
+              
+           }
+           </div>
                 </div>
 
             <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="Wishlist"  />
