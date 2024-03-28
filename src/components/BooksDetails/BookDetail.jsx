@@ -29,10 +29,10 @@ const BookDetail = () => {
     const {bookId,bookName,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=book||{}
     const handleRead=()=>{
 
-      const book2=allBook?.find(b=>b.bookId===idNum)
-      setBook(book2);
+      // const book2=allBook?.find(b=>b.bookId===idNum)
+      // setBook(book);
       if(read){
-        saveBookDAta(book2)
+        saveBookDAta(book)
         toast("Book Added to Read List");
         setRead(false)
       }else{
@@ -40,9 +40,9 @@ const BookDetail = () => {
       }
     }
     const handleWishlist=()=>{
-      const book2=allBook?.find(b=>b.bookId===idNum)
+      // const book2=allBook?.find(b=>b.bookId===idNum)
       if(read){
-          saveBookWishlist(book2)
+          saveBookWishlist(book)
         toast("Book Added to WishlistList ");
       }else{
         toast.error("You Have Already Read this Book");
@@ -101,12 +101,12 @@ const BookDetail = () => {
        
   
           <div className='flex gap-2'>
-          <Link to={''}>
+          <Link>
           <Button onClick={handleRead} variant="text" >
           Read
           </Button>
           </Link>
-          <Link to={''}>
+          <Link>
           <Button onClick={handleWishlist} color="blue"> Wishlist</Button>
           </Link>
           
