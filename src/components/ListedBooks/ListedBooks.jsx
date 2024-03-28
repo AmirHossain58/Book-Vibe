@@ -13,8 +13,6 @@ const ListedBooks = () => {
     const bookReadAll=getBookData()
     const[click ,setclick]=useState(false)
     const[sort ,setSort]=useState()
-    console.log(bookReadAll);
-    // setBookRead(bookReadAll)
 useEffect(()=>{
 
     if(bookReadAll.length>0){
